@@ -2,6 +2,10 @@ import { useForm } from "react-hook-form";
 
 const FormSetup = () => {
   const form = useForm();
+
+  //   REGISTER
+  const { register } = form;
+
   return (
     <div className="flex flex-col justify-center bg-gray-800 items-center h-screen">
       <h1 className="font-bold text-2xl text-white mb-6">Basic Form Setup</h1>
@@ -15,7 +19,7 @@ const FormSetup = () => {
         <input
           type="text"
           id="username"
-          name="username"
+          {...register("username")}
           placeholder="Enter username"
           className="w-full border p-2 mb-4"
         />
@@ -29,7 +33,7 @@ const FormSetup = () => {
         <input
           id="email"
           type="email"
-          name="email"
+          {...register("email")}
           placeholder="Enter email"
           className="w-full border p-2 mb-4"
         />
@@ -43,7 +47,7 @@ const FormSetup = () => {
         <input
           id="channel"
           type="text"
-          name="channel"
+          {...register("channel")}
           placeholder="Enter channel name"
           className="w-full border p-2 mb-4"
         />

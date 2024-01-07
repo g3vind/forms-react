@@ -28,3 +28,37 @@
 `npm install react-hook-form`
 
 1. useForm() - a custom hook basically
+
+## Managing Form State
+
+- every form has a few moving parts that keeps changing from the time the user loades form and submit it.
+
+i.e.
+(a) current value of a field in the form
+(b) whether a field has been interacted with
+(c) whethe a field's value has been changed
+(d) whether the form is invalid
+(e) whether fields contains errors
+
+- ALL ABOVE ARE COLLECTIVLEY CALLED FORM STATE
+
+## Representing Form State
+
+Using Objects i.e. key-value pairs
+{
+values:{}
+visited:{}
+errors:{}
+isValid:boolean
+}
+
+e.g.
+import {useForm} from "react-hook-form"
+
+const form = useForm()
+
+const {register} = form
+
+now, replace `name` of input to {...register("name attribute")}
+e.g. <label htmlFor="email">Username</label>
+<input tpye="text" {...register("email")}/>
