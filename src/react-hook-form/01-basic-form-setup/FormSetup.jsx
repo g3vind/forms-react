@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
 
 const FormSetup = () => {
   const form = useForm();
 
   //   REGISTER
-  const { register } = form;
+  const { register, control } = form;
 
   return (
     <div className="flex flex-col justify-center bg-gray-800 items-center h-screen">
@@ -56,6 +57,7 @@ const FormSetup = () => {
           Submit
         </button>
       </form>
+      <DevTool control={control} />
     </div>
   );
 };
