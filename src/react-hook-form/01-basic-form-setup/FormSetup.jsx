@@ -1,4 +1,7 @@
+import { useForm } from "react-hook-form";
+
 const FormSetup = () => {
+  const form = useForm();
   return (
     <div className="flex flex-col justify-center bg-gray-800 items-center h-screen">
       <h1 className="font-bold text-2xl text-white mb-6">Basic Form Setup</h1>

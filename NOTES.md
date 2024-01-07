@@ -24,3 +24,7 @@
 - submit form data
 - validation
 - error msgs
+
+`npm install react-hook-form`
+
+1. useForm() - a custom hook basically
