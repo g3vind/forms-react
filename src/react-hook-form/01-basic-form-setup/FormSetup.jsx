@@ -19,6 +19,7 @@ const FormSetup = () => {
         Basic Form Setup {renderCount / 2}
       </h1>
       <form
+        noValidate
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white p-6 rounded shadow-md w-96"
       >
@@ -31,7 +32,9 @@ const FormSetup = () => {
         <input
           type="text"
           id="username"
-          {...register("username")}
+          {...register("username", {
+            required: { value: true, message: "username is required my boi" },
+          })}
           placeholder="Enter username"
           className="w-full border p-2 mb-4"
         />
@@ -45,7 +48,12 @@ const FormSetup = () => {
         <input
           id="email"
           type="email"
-          {...register("email")}
+          {...register("email", {
+            pattern: {
+              value: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+              message: "Email format sahi kro",
+            },
+          })}
           placeholder="Enter email"
           className="w-full border p-2 mb-4"
         />
@@ -59,7 +67,9 @@ const FormSetup = () => {
         <input
           id="channel"
           type="text"
-          {...register("channel")}
+          {...register("channel", {
+            required: { value: true, message: "channel name dalo be" },
+          })}
           placeholder="Enter channel name"
           className="w-full border p-2 mb-4"
         />

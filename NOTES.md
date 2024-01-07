@@ -62,3 +62,14 @@ const {register} = form
 now, replace `name` of input to {...register("name attribute")}
 e.g. <label htmlFor="email">Username</label>
 <input tpye="text" {...register("email")}/>
+
+## FORM VALIDATION
+
+react-hook-form supports html validation rules like
+
+- required
+- minLength & maxLength
+- min & max
+- regex pattern etc
+
+## noValidate prop in fields to stop browser validation allowing react-hook-form validation in the form element itself
