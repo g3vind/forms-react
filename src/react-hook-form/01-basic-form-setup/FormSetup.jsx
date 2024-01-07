@@ -7,7 +7,8 @@ const FormSetup = () => {
   renderCount++;
 
   //   REGISTER
-  const { register, control, handleSubmit } = form;
+  const { register, control, handleSubmit, formState } = form;
+  const { errors } = formState;
 
   function onSubmit(data) {
     console.log("Form Submitted: ", data);
@@ -38,7 +39,8 @@ const FormSetup = () => {
           placeholder="Enter username"
           className="w-full border p-2 mb-4"
         />
-
+        {/* Showing Error Messages */}
+        <p className="text-red-500">{errors?.username?.message}</p>
         <label
           htmlFor="email"
           className="block mb-2 text-sm font-bold text-gray-600"
@@ -57,6 +59,8 @@ const FormSetup = () => {
           placeholder="Enter email"
           className="w-full border p-2 mb-4"
         />
+        {/* Showing Errors for Email */}
+        <p className="text-red-500">{errors?.email?.message}</p>
 
         <label
           htmlFor="channel"
@@ -73,6 +77,7 @@ const FormSetup = () => {
           placeholder="Enter channel name"
           className="w-full border p-2 mb-4"
         />
+        <p className="text-red-500">{errors?.channel?.message}</p>
 
         <button className="bg-red-500 text-white px-4 py-2 rounded-lg">
           Submit
