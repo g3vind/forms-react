@@ -7,14 +7,21 @@ const FormSetup = () => {
   renderCount++;
 
   //   REGISTER
-  const { register, control } = form;
+  const { register, control, handleSubmit } = form;
+
+  function onSubmit(data) {
+    console.log("Form Submitted: ", data);
+  }
 
   return (
     <div className="flex flex-col justify-center bg-gray-800 items-center h-screen">
       <h1 className="font-bold text-2xl text-white mb-6">
         Basic Form Setup {renderCount / 2}
       </h1>
-      <form className="bg-white p-6 rounded shadow-md w-96">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="bg-white p-6 rounded shadow-md w-96"
+      >
         <label
           htmlFor="username"
           className="block mb-2 text-sm font-bold text-gray-600"
