@@ -1,15 +1,19 @@
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-
+let renderCount = 0;
 const FormSetup = () => {
   const form = useForm();
+
+  renderCount++;
 
   //   REGISTER
   const { register, control } = form;
 
   return (
     <div className="flex flex-col justify-center bg-gray-800 items-center h-screen">
-      <h1 className="font-bold text-2xl text-white mb-6">Basic Form Setup</h1>
+      <h1 className="font-bold text-2xl text-white mb-6">
+        Basic Form Setup {renderCount / 2}
+      </h1>
       <form className="bg-white p-6 rounded shadow-md w-96">
         <label
           htmlFor="username"
