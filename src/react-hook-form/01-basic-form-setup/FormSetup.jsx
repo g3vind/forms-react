@@ -55,6 +55,22 @@ const FormSetup = () => {
               value: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
               message: "Email format sahi kro",
             },
+            // Custom Validation
+            validate: {
+              // Preventing users from choosing admin@example.com as their email
+              notAdmin: (fieldValue) => {
+                return (
+                  fieldValue !== "admin@example.com" || "Enter any other email"
+                );
+              },
+              // preventing users from entering baddomain in the email
+              notBlacklisted: (fieldValue) => {
+                return (
+                  !fieldValue.endsWith("baddomain.com") ||
+                  "This domain is not supported"
+                );
+              },
+            },
           })}
           placeholder="Enter email"
           className="w-full border p-2 mb-4"
